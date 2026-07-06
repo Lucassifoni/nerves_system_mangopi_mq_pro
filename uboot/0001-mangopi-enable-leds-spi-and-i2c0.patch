@@ -4,22 +4,21 @@ Date: Mon, 16 Jan 2023 17:06:35 +0000
 Subject: [PATCH] mangopi: enable leds, spi and i2c0
 
 ---
- arch/riscv/dts/sun20i-d1-mangopi-mq-pro.dts | 77 +++++++++++++++++++++
- 1 file changed, 77 insertions(+)
+ arch/riscv/dts/sun20i-d1-mangopi-mq-pro.dts | 76 +++++++++++++++++++++
+ 1 file changed, 76 insertions(+)
 
 diff --git a/arch/riscv/dts/sun20i-d1-mangopi-mq-pro.dts b/arch/riscv/dts/sun20i-d1-mangopi-mq-pro.dts
 index a7149baf..16b24db7 100644
 --- a/arch/riscv/dts/sun20i-d1-mangopi-mq-pro.dts
 +++ b/arch/riscv/dts/sun20i-d1-mangopi-mq-pro.dts
-@@ -167,3 +167,80 @@
+@@ -167,3 +167,79 @@
  	usb0_vbus-supply = <&reg_vcc>;
  	status = "okay";
  };
 +
 +&pwm {
-+	pinctrl-0 = <&pwm2_pd18_pin>;
-+	pinctrl-names = "default";
-+	status = "okay";
++	clocks = <&ccu CLK_BUS_PWM>, <&osc24M>, <&ccu CLK_APB0>;
++	clock-names = "bus", "hosc", "apb";
 +};
 +
 +&ledc {

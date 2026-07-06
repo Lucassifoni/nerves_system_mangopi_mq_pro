@@ -1,0 +1,47 @@
+/dts-v1/;
+/plugin/;
+
+&{/soc/pinctrl@2000000} {
+	pwm0_pb5_pin: pwm0-pb5-pin {
+		pins = "PB5";
+		function = "pwm0";
+	};
+
+	pwm1_pb6_pin: pwm1-pb6-pin {
+		pins = "PB6";
+		function = "pwm1";
+	};
+
+	pwm2_pb11_pin: pwm2-pb11-pin {
+		pins = "PB11";
+		function = "pwm2";
+	};
+
+	pwm3_pb0_pin: pwm3-pb0-pin {
+		pins = "PB0";
+		function = "pwm3";
+	};
+
+	pwm4_pb1_pin: pwm4-pb1-pin {
+		pins = "PB1";
+		function = "pwm4";
+	};
+
+	pwm5_pd21_pin: pwm5-pd21-pin {
+		pins = "PD21";
+		function = "pwm5";
+	};
+
+	pwm7_pb10_pin: pwm7-pb10-pin {
+		pins = "PB10";
+		function = "pwm7";
+	};
+};
+
+&{/soc/pwm@2000c00} {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm0_pb5_pin>, <&pwm1_pb6_pin>, <&pwm2_pb11_pin>,
+		    <&pwm3_pb0_pin>, <&pwm4_pb1_pin>, <&pwm5_pd21_pin>,
+		    <&pwm7_pb10_pin>;
+	status = "okay";
+};
